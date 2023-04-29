@@ -162,20 +162,30 @@
 
 		play1Button.addEventListener("click", function() {
 			playAudio(audio1);
+			play2Button.classList.remove("button-playing");
+			play3Button.classList.remove("button-playing");
 			play1Button.classList.add("button-playing");
 		});
 
 		play2Button.addEventListener("click", function() {
 			playAudio(audio2);
+			play1Button.classList.remove("button-playing");
+			play3Button.classList.remove("button-playing");
 			play2Button.classList.add("button-playing");
 		});
 
 		play3Button.addEventListener("click", function() {
 			playAudio(audio3);
+			play1Button.classList.remove("button-playing");
+			play2Button.classList.remove("button-playing");
 			play3Button.classList.add("button-playing");
 		});
 
-		stopButton.addEventListener("click", stopAudio);
+		stopButton.addEventListener("click", stopAudio() {
+		        play1Button.classList.remove("button-playing");
+			play2Button.classList.remove("button-playing");
+			play3Button.classList.remove("button-playing");
+		});
 
 		audio1.addEventListener("ended", function() {
 			audio1.currentTime = 0;
