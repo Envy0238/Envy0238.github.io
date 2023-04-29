@@ -30,6 +30,10 @@
 		  cursor: pointer;
 		}
 		
+		.button-playing {
+		background-color: red;
+		}
+		
 		div {
  		  margin-bottom: 50px; /* 將 div 元素之間的間距增加為 20 像素 */
 		}
@@ -158,14 +162,17 @@
 
 		play1Button.addEventListener("click", function() {
 			playAudio(audio1);
+			play1Button.classList.add("button-playing");
 		});
 
 		play2Button.addEventListener("click", function() {
 			playAudio(audio2);
+			play2Button.classList.add("button-playing");
 		});
 
 		play3Button.addEventListener("click", function() {
 			playAudio(audio3);
+			play3Button.classList.add("button-playing");
 		});
 
 		stopButton.addEventListener("click", stopAudio);
