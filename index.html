@@ -31,6 +31,26 @@
 		div {
  		  margin-bottom: 50px; /* 將 div 元素之間的間距增加為 20 像素 */
 		}
+
+		input[type="range"] {
+		  -webkit-appearance: none;
+		  width: 80%;
+		  height: 10px;
+		  background-color: #FFFFFF;
+		  border-radius: 5px;
+		  outline: none;
+		  margin-bottom: 10px;
+		}
+
+		input[type="range"]::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  width: 50px;
+		  height: 50px;
+		  background-color: #00AA00;
+		  border-radius: 50%;
+		  cursor: pointer;
+		}
+
 	</style>
 </head>
 <body>
@@ -52,6 +72,7 @@
 		<button id="play2">播放日間bgm</button>
 		<button id="play3">播放鐘聲</button>
 		<button id="stop">停止</button>
+		<input type="range" id="volume" min="0" max="1" value="1" step="0.01">
 	<h5>本網頁由安飛Envy製作</h5>
 	</div>
 	<audio id="audio1" src="night.mp3"></audio>
@@ -106,6 +127,7 @@
 		resetButton.addEventListener("click", resetTimer);
 
 		// 音頻播放器部分的代碼
+		var volumeSlider = document.getElementById("volume");
 		var audio1 = document.getElementById("audio1");
 		var audio2 = document.getElementById("audio2");
 		var audio3 = document.getElementById("audio3");
@@ -160,6 +182,12 @@
 		audio3.addEventListener("ended", function() {
 			audio3.currentTime = 0;
 			audio3.play();
+		});
+
+		volumeSlider.addEventListener("input", function() {
+		     audio1.volume = volumeSlider.value;
+		     audio2.volume = volumeSlider.value;
+		     audio3.volume = volumeSlider.value;
 		});
 	</script>
 </body>
