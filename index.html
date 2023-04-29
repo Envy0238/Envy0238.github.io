@@ -6,10 +6,12 @@
 		body {
 		  font-family: Arial, sans-serif;
 		  font-size: 50px; /* 增加字體大小 */
+		  background-color: #222222; /* 背景顏色設置 */
+		  color: #FFFFFF; /* 字體顏色設置 */
 		}
 
 		input {
-		  width: 100px; /* 增加輸入框大小 */
+		  width: 180px; /* 增加輸入框大小 */
 		  text-align: center;
 		  font-size: 50px; /* 增加輸入框字體大小 */
 		}
@@ -18,11 +20,15 @@
 		  margin: 10px;
 		  padding: 30px 60px; /* 增加按鈕的上下和左右填充 */
 		  font-size: 50px; /* 增加按鈕字體大小 */
-		  background-color: #4CAF50;
+		  background-color: #00AA00;
 		  color: white;
 		  border: none;
 		  border-radius: 5px;
 		  cursor: pointer;
+		}
+		
+		div {
+ 		  margin-bottom: 50px; /* 將 div 元素之間的間距增加為 20 像素 */
 		}
 	</style>
 </head>
@@ -45,6 +51,7 @@
 		<button id="play2">播放日間bgm</button>
 		<button id="play3">播放鐘聲</button>
 		<button id="stop">停止</button>
+	<h2>本網頁由安飛Envy製作</h2>
 	</div>
 	<audio id="audio1" src="night.mp3"></audio>
 	<audio id="audio2" src="day.mp3"></audio>
