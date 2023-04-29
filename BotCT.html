@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>倒計時器和音頻播放器</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		input {
+			width: 50px;
+			text-align: center;
+		}
+		button {
+			margin: 10px;
+			padding: 5px 10px;
+			font-size: 16px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>倒計時器和音頻播放器</h1>
+	<div>
+		<label for="minutes">分鐘：</label>
+		<input type="number" id="minutes" min="0" max="60" value="0">
+		<label for="seconds">秒數：</label>
+		<input type="number" id="seconds" min="0" max="60" value="0">
+	</div>
+	<div>
+		<button id="start">開始</button>
+		<button id="pause">暫停</button>
+		<button id="reset">重置</button>
+	</div>
+	<div>
+		<button id="play1">播放夜間bgm</button>
+		<button id="play2">播放日間bgm</button>
+		<button id="play3">播放鐘聲</button>
+		<button id="stop">停止</button>
+	</div>
+	<audio id="audio1" src="night.mp3"></audio>
+	<audio id="audio2" src="day.mp3"></audio>
+	<audio id="audio3" src="clockbell.mp3"></audio>
+	<script>
+		// 倒計時器部分的代碼
+		var minutesInput = document.getElementById("minutes");
+		var secondsInput = document.getElementById("seconds");
+		var startButton = document.getElementById("start");
+		var pauseButton = document.getElementById("pause");
+		var resetButton = document.getElementById("reset");
+		var timeLeft = 0;
+		var timerId = null;
+
+		function startTimer() {
+			if (timerId != null) {
+				return;
+			}
+
+			timeLeft = parseInt(minutesInput.value) * 60 + parseInt(secondsInput.value);
+			timerId = setInterval(function() {
+				timeLeft--;
+				var minutes = Math.floor(timeLeft / 60);
+				var seconds = timeLeft % 60;
+				minutesInput.value = minutes;
+				secondsInput.value = seconds;
+
+				if (timeLeft == 0) {
+					clearInterval(timerId);
+					timerId = null;
+					alert("倒計時結束！");
+				}
+			}, 1000);
+		}
+
+		function pauseTimer() {
+			if (timerId != null) {
+				clearInterval(timerId);
+				timerId = null;
+			}
+		}
+
+		function resetTimer() {
+			pauseTimer();
+			minutesInput.value = 0;
+			secondsInput.value = 0;
+		}
+
+		startButton.addEventListener("click", startTimer);
+		pauseButton.addEventListener("click", pauseTimer);
+		resetButton.addEventListener("click", resetTimer);
+
+		// 音頻播放器部分的代碼
+		var audio1 = document.getElementById("audio1");
+		var audio2 = document.getElementById("audio2");
+		var audio3 = document.getElementById("audio3");
+		var play1Button = document.getElementById("play1");
+		var play2Button = document.getElementById("play2");
+		var play3Button = document.getElementById("play3");
+		var stopButton = document.getElementById("stop");
+		var currentAudio = null;
+
+		function playAudio(audio) {
+			if (currentAudio != null && currentAudio != audio) {
+				currentAudio.pause();
+				currentAudio.currentTime = 0;
+			}
+
+			audio.play();
+			currentAudio = audio;
+		}
+
+		function stopAudio() {
+			if (currentAudio != null) {
+				currentAudio.pause();
+				currentAudio.currentTime = 0;
+				currentAudio = null;
+			}
+		}
+
+		play1Button.addEventListener("click", function() {
+			playAudio(audio1);
+		});
+
+		play2Button.addEventListener("click", function() {
+			playAudio(audio2);
+		});
+
+		play3Button.addEventListener("click", function() {
+			playAudio(audio3);
+		});
+
+		stopButton.addEventListener("click", stopAudio);
+
+		audio1.addEventListener("ended", function() {
+			audio1.currentTime = 0;
+			audio1.play();
+		});
+
+		audio2.addEventListener("ended", function() {
+			audio2.currentTime = 0;
+			audio2.play();
+		});
+
+		audio3.addEventListener("ended", function() {
+			audio3.currentTime = 0;
+			audio3.play();
+		});
+	</script>
+</body>
+</html>
