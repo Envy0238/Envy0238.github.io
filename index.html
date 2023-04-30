@@ -46,7 +46,22 @@
        width: 868.5px;
        height: 288px;
 		}
+.table-wrapper {
+  text-align: center;
+}
 
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+}
+
+th, td {
+  padding: 5px;
+  text-align: center;
+  border: 1px solid black;
+}
 	</style>
 </head>
 <body>
@@ -71,6 +86,7 @@
 		<button id="stop">Stop Playing</button>
 	<h3>- Player Setup -</h3>
 	   <img src="IMG_5919.jpeg" alt="Pic1">
+<div class="table-wrapper">
 <table>
   <tr>
     <th>Players</th>
@@ -143,6 +159,7 @@
     <td>1</td>
   </tr>
 </table>
+</div>
 	<h5>Powered by Envy the Storyteller</h5>
 	</div>
 	<audio id="audio1" src="night.mp3"></audio>
