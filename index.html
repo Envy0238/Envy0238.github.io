@@ -38,27 +38,14 @@
  		  margin-bottom: 50px; /* 將 div 元素之間的間距增加為 20 像素 */
 		}
 
-		input[type="range"] {
-		  width: 80%;
-		  height: 10px;
-		  background-color: #FFFFFF;
-		  border-radius: 5px;
-		  outline: none;
-		  margin-bottom: 10px;
-		}
-
-		input[type="range"]::-webkit-slider-thumb {
-		  width: 50px;
-		  height: 50px;
-		  background-color: #00AA00;
-		  border-radius: 50%;
-		  cursor: pointer;
+		.highlight {
+		  color: red;
 		}
 
 	</style>
 </head>
 <body>
-	<h2>Storyteller Tools</h2>
+	<h2><p><span class="highlight">Blood</span> on the Clocktower: Storyteller Tools</p></h2>
 	<h3>Discussion Timer</h3>
 	<div>
 		<label for="minutes">Min：</label>
@@ -77,7 +64,6 @@
 		<button id="play2">Daytime BGM</button>
 		<button id="play3">Clocktower Bell</button>
 		<button id="stop">Stop Playing</button>
-		<!-- <input type="range" id="volume" min="0" max="1" value="1" step="0.01"> -->
 	<h5>Powered by Envy the Storyteller</h5>
 	</div>
 	<audio id="audio1" src="night.mp3"></audio>
@@ -187,12 +173,6 @@
 		audio3.addEventListener("ended", function() {
 			audio3.currentTime = 0;
 			audio3.play();
-		});
-
-		volumeSlider.addEventListener("input", function() {
-		     audio1.volume = volumeSlider.value;
-		     audio2.volume = volumeSlider.value;
-		     audio3.volume = volumeSlider.value;
 		});
 	</script>
 </body>
