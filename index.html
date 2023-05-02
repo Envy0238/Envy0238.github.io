@@ -93,43 +93,6 @@
 		<button id="play2">Daytime BGM</button>
 		<button id="play3">Clocktower Bell</button>
 		<button id="stop">Stop Playing</button>
-<h3>- Display -</h3>
-<!-- 創建多個超連結 -->
-<table>
-  <tr>
-<td><a href="#popup-1" class="popup-link">爪牙</a></td>
-<td><a href="#popup-2" class="popup-link">惡魔1</a></td>
-<td><a href="#popup-3" class="popup-link">惡魔2</a></td>
-<td><a href="#popup-4" class="popup-link">目標</a></td>
-<td><a href="#popup-5" class="popup-link">2出1</a></td>
-<td><a href="#popup-6" class="popup-link">手勢</a></td>
-<td><a href="#popup-7" class="popup-link">手牌</a></td>
-  </tr>
-</table>
-
-<!-- 創建多個包含圖片的元素 -->
-<div id="popup-1" class="popup" style="display:none;">
-  <img src="惡魔.png">
-</div>
-<div id="popup-2" class="popup" style="display:none;">
-  <img src="爪牙.png">
-</div>
-<div id="popup-3" class="popup" style="display:none;">
-  <img src="不在場角色.png">
-</div>
-<div id="popup-4" class="popup" style="display:none;">
-  <img src="技能目標.png">
-</div>
-<div id="popup-5" class="popup" style="display:none;">
-  <img src="二出一.png">
-</div>
-<div id="popup-6" class="popup" style="display:none;">
-  <img src="看手勢.png">
-</div>
-<div id="popup-7" class="popup" style="display:none;">
-  <img src="看手牌.png">
-</div>
-
 	<h3>- Player Setup -</h3>
 <div class="table-wrapper">
 <table>
@@ -311,31 +274,6 @@
 			audio3.currentTime = 0;
 			audio3.play();
 		});
-
-// 獲取所有超連結和圖片元素
-var links = document.querySelectorAll('.popup-link');
-var popups = document.querySelectorAll('.popup');
-
-// 為每個超連結添加監聽器
-for (var i = 0; i < links.length; i++) {
-  links[i].addEventListener('click', function(event) {
-    // 取消默認行為
-    event.preventDefault();
-    // 獲取對應的圖片元素
-    var popup = document.querySelector(this.getAttribute('href'));
-    // 顯示圖片元素
-    popup.style.display = 'block';
-  });
-}
-
-// 為每個圖片元素添加監聽器
-for (var i = 0; i < popups.length; i++) {
-  popups[i].addEventListener('click', function(event) {
-    // 隱藏圖片元素
-    this.style.display = 'none';
-  });
-}
-
 	</script>
 </body>
 </html>
