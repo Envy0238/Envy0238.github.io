@@ -92,6 +92,7 @@
 		<button id="play1">Nighttime BGM</button>
 		<button id="play2">Daytime BGM</button>
 		<button id="play3">Clocktower Bell</button>
+		<button id="play4">Victory</button>
 		<button id="stop">Stop Playing</button>
 	<h3>- Player Setup -</h3>
 <div class="table-wrapper">
@@ -169,6 +170,7 @@
 	<audio id="audio1" src="night.mp3"></audio>
 	<audio id="audio2" src="day.mp3"></audio>
 	<audio id="audio3" src="clockbell.mp3"></audio>
+	<audio id="audio4" src="victory.mp3"></audio>
 	<script>
 		// 倒計時器部分的代碼
 		var minutesInput = document.getElementById("minutes");
@@ -222,9 +224,11 @@
 		var audio1 = document.getElementById("audio1");
 		var audio2 = document.getElementById("audio2");
 		var audio3 = document.getElementById("audio3");
+		var audio4 = document.getElementById("audio4");
 		var play1Button = document.getElementById("play1");
 		var play2Button = document.getElementById("play2");
 		var play3Button = document.getElementById("play3");
+		var play4Button = document.getElementById("play4");
 		var stopButton = document.getElementById("stop");
 		var currentAudio = null;
 
@@ -258,6 +262,10 @@
 			playAudio(audio3);
 		});
 
+		play4Button.addEventListener("click", function() {
+			playAudio(audio4);
+		});
+
 		stopButton.addEventListener("click", stopAudio);
 
 		audio1.addEventListener("ended", function() {
@@ -273,6 +281,11 @@
 		audio3.addEventListener("ended", function() {
 			audio3.currentTime = 0;
 			audio3.play();
+		});
+
+		audio4.addEventListener("ended", function() {
+			audio4.currentTime = 0;
+			audio4.play();
 		});
 	</script>
 </body>
